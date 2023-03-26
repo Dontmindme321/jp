@@ -1,0 +1,18 @@
+-- Define the jump power value
+
+local jumpPower = 67
+
+-- Change the jump power of the character
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = jumpPower
+
+-- Connect to the user input service to detect jump key press
+
+game:GetService("UserInputService").JumpRequest:Connect(function()
+
+    game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+
+    game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = jumpPower
+
+end)
+
